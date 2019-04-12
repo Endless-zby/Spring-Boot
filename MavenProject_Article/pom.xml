@@ -11,5 +11,27 @@
 
     <artifactId>MavenProject_Article</artifactId>
 
+    <dependencies>
+        <!-- jpa，相当于Mybatis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>2.1.3.RELEASE</version>
+        </dependency>
+
+        <!-- mysql的jar -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+
+        <!-- 引入另一个工程 -->
+        <dependency>
+            <groupId>com.zby</groupId>
+            <artifactId>MavenProject_Common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

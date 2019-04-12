@@ -13,6 +13,9 @@ spring:
 
 
   jpa:
+    database-platform:
+      # spring boot 2.0 的坑， spring boot2.+后默认使用的是MyISAM引擎
+      org.hibernate.dialect.MySQL5InnoDBDialect
     database: MySQL
     generate-ddl: true
     show-sql: true
