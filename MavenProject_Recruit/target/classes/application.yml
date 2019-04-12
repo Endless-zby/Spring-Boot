@@ -1,0 +1,25 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: MavenProject_Recruit
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://cdb-6kot9g5e.cd.tencentcdb.com:10007/project_recruit?characterEncoding=utf-8&useSSL=true
+    url: jdbc:mysql://localhost:3306/project_recruit?characterEncoding=utf-8
+    username: root
+    password: zby123456
+
+
+  jpa:
+    database: MySQL
+    generate-ddl: true
+    show-sql: true
+
+    hibernate:
+      ddl-auto: update
+
+
+
+
