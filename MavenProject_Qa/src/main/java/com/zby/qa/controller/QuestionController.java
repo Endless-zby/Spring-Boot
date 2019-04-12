@@ -36,4 +36,9 @@ public class QuestionController {
         Page<Question> quesionsPage = questionService.findWaitQuestionsByLabelId(labelid, start, pagesize);
         return new Result(true, StatusCode.OK,"查询成功",quesionsPage  );
     }
+
+    @GetMapping(value = "queryallbyid/{id}")
+    public Result findTop10ByIdEquals(@PathVariable String id){
+        return new Result(true,StatusCode.OK,"查询成功",questionService.findTop10ByIdEquals(id));
+    }
 }

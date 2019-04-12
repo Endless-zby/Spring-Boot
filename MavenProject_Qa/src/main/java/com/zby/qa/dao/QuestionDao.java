@@ -27,4 +27,10 @@ public interface QuestionDao extends JpaRepository<Question,String>, JpaSpecific
         //原生态SQL：nativeQuery=true
         @Query(nativeQuery=true,value="select * from tb_question q where id in (select question_id from tb_question_label where label_id=?) and replies=0 order by pulish_time desc")
         public Page<Question> findWaitQuestionsByLabelId(String labelId,Pageable pageable) ;
+
+
+        //分页查询
+
+        public Question findTop10ByIdEquals(String id);
+
 }
