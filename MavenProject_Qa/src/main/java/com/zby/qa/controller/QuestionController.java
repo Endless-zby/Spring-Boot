@@ -31,9 +31,9 @@ public class QuestionController {
         return new Result(true, StatusCode.OK,"查询成功",questionService.findHotQuestionsByLabelId(labelid,start,pageSize));
 
     }
-    @GetMapping(value="waitquesionlist/{labeid}/{start}/{pagesize}")
-    public Result findWaitQuestionsByLabelId(@PathVariable String labeid,@PathVariable int start,@PathVariable int pagesize){
-        Page<Question> quesionsPage = questionService.findWaitQuestionsByLabelId(labeid, start, pagesize);
+    @GetMapping(value="waitquesionlist/{labelid}/{start}/{pagesize}")
+    public Result findWaitQuestionsByLabelId(@PathVariable String labelid,@PathVariable int start,@PathVariable int pagesize){
+        Page<Question> quesionsPage = questionService.findWaitQuestionsByLabelId(labelid, start, pagesize);
         return new Result(true, StatusCode.OK,"查询成功",quesionsPage  );
     }
 }
