@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class QuestionService {
@@ -35,5 +37,10 @@ public class QuestionService {
     //jpa规则下查找id
     public Question  findTop10ByIdEquals(String id){
         return questionDao.findTop10ByIdEquals(id);
+    }
+
+    //jpa语法规则
+    public Question findAllByIdEquals(String id){
+        return questionDao.findAllByIdEquals(id);
     }
 }

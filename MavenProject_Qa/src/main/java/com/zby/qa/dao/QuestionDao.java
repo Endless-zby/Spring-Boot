@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 public interface QuestionDao extends JpaRepository<Question,String>, JpaSpecificationExecutor<Question> {
 
         //自定义接口、sql语句（非规范接口命名）
@@ -30,7 +32,9 @@ public interface QuestionDao extends JpaRepository<Question,String>, JpaSpecific
 
 
         //分页查询
-
         public Question findTop10ByIdEquals(String id);
+
+        //replytime排序查询
+        public Question findAllByIdEquals(String id);
 
 }

@@ -41,4 +41,9 @@ public class QuestionController {
     public Result findTop10ByIdEquals(@PathVariable String id){
         return new Result(true,StatusCode.OK,"查询成功",questionService.findTop10ByIdEquals(id));
     }
+
+    @GetMapping(value = "findByReplyTimeOrderById/{id}")
+    public Result findByReplyTimeOrderById(@PathVariable String id){
+        return new Result(true,StatusCode.OK,"查询成功",questionService.findAllByIdEquals(id));
+    }
 }

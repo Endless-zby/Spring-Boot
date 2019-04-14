@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 public interface ArticleDao extends JpaRepository<Article,String>, JpaSpecificationExecutor<Article> {
 
     //审核文章 :修改|删除：   @Modifying+@Query
