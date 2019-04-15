@@ -26,7 +26,7 @@ public class ArticleController {
 
     @GetMapping("queryid/{id}")
     public Result queryid(@PathVariable String id){
-        return new Result(true, StatusCode.OK,"点赞成功！",articleService.queryid(id));
+        return new Result(true, StatusCode.OK,"查询成功！",articleService.queryid(id));
     }
 
 }

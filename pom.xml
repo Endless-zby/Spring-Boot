@@ -14,6 +14,7 @@
         <module>MavenProject_Recruit</module>
         <module>MavenProject_Qa</module>
         <module>MavenProject_Article</module>
+        <module>MavenProject_Active</module>
     </modules>
 
     <properties>
@@ -45,10 +46,17 @@
             <scope>test</scope>
         </dependency>
 
- <!--       <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>-->
+        </dependency>
+
+
+            <!--<dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            </dependency>-->
+
 
     </dependencies>
 

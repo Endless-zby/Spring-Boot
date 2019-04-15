@@ -30,13 +30,13 @@ public class ArticleService {
     }
 
     //redis缓存中存储一份
+    @Transactional
     public Article queryid(String id){
-
-        Article article = (Article) redisTemplate.opsForValue().get(id);
-
+        Article article = (Article) redisTemplate.opsForValue().get("article_" + id);
+        //redis没有则在数据库查找，然后保存在redis中
         if(article == null){
             article = articleDao.findById(id).get();
-            redisTemplate.opsForValue().set(id,article);
+            redisTemplate.opsForValue().set("article_" + id,article);
         }
         return article;
     }
