@@ -23,6 +23,8 @@ spring:
     hibernate:
       ddl-auto: update
 
-
+  redis:
+    host: 39.96.160.110
+    post: 6379
 
 

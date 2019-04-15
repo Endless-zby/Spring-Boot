@@ -24,4 +24,9 @@ public class ArticleController {
         return new Result(true, StatusCode.OK,"点赞成功！",null);
     }
 
+    @GetMapping("queryid/{id}")
+    public Result queryid(@PathVariable String id){
+        return new Result(true, StatusCode.OK,"点赞成功！",articleService.queryid(id));
+    }
+
 }

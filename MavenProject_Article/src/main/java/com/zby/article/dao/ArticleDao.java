@@ -20,4 +20,8 @@ public interface ArticleDao extends JpaRepository<Article,String>, JpaSpecificat
     @Query("update Article set likes = likes+1  where id =?1 ")
     public void updateLikes(String id);
 
+    //查询全部
+
+    @Query(nativeQuery = true,value = "select * from tb_article where id = ?")
+    public Article queryid(String id);
 }

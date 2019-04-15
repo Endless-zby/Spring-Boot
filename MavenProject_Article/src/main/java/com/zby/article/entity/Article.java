@@ -3,11 +3,12 @@ package com.zby.article.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "tb_article")
-public class Article {
+public class Article implements Serializable {
     @Id
     private String id ;
     private String columnId ; //专栏
@@ -63,6 +64,9 @@ public class Article {
         this.state = state;
         this.url = url;
         this.type = type;
+    }
+    public Article() {
+
     }
 
     public String getId() {

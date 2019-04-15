@@ -50,8 +50,7 @@ public class LabelController {
     //查询ByID
     @RequestMapping(value = "{id}",method = RequestMethod.HEAD)
     public Result queryByid(@PathVariable("id") String id){
-        labelService.queryByid(id);
-        return new Result(true, StatusCode.OK,"通过id值查询成功", null);
+        return new Result(true, StatusCode.OK,"通过id值查询成功", labelService.queryByid(id));
     }
     //查询--->模糊查询/条件查询
     @RequestMapping(value = "findLabels",method = RequestMethod.POST)
