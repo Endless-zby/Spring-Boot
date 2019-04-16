@@ -4,6 +4,8 @@ import java.util.List;
 
 public class PageResult<T> {
     private Long total ;
+    private List<T> rows ;
+
 
     public PageResult(Long total, List<T> rows) {
         this.total = total;
@@ -11,8 +13,6 @@ public class PageResult<T> {
     }
     public PageResult() {
     }
-
-    private List<T> rows ;
 
     public Long getTotal() {
         return total;

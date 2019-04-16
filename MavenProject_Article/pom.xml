@@ -26,6 +26,11 @@
             <version>5.1.47</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
         <!-- 引入另一个工程 -->
         <dependency>
             <groupId>com.zby</groupId>

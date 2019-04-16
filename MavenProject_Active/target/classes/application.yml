@@ -1,5 +1,5 @@
 server:
-  port: 9005
+  port: 9006
 
 spring:
   application:
@@ -23,6 +23,6 @@ spring:
     hibernate:
       ddl-auto: update
 
-  redis:
-    host: 39.96.160.110
+#  redis:
+#    host: 39.96.160.110
 

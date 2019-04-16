@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>MavenProject</artifactId>
+        <groupId>com.zby</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>MavenProject_Comments</artifactId>
+
+<dependencies>
+
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-mongodb</artifactId>
+    </dependency>
+
+
+
+    <!-- 引入另一个工程 -->
+    <dependency>
+        <groupId>com.zby</groupId>
+        <artifactId>MavenProject_Common</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+</dependencies>
+
+</project>

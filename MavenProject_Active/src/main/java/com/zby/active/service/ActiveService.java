@@ -2,7 +2,6 @@ package com.zby.active.service;
 
 import com.zby.active.dao.ActiveDao;
 import com.zby.active.enticle.Active;
-import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+
 public class ActiveService {
 
     @Autowired

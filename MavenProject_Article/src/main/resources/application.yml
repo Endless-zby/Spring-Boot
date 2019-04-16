@@ -26,7 +26,3 @@ spring:
   redis:
     host: 39.96.160.110
 
-  data:
-    mongodb:
-      uri: mongodb://39.96.160.110:27017/zby
-

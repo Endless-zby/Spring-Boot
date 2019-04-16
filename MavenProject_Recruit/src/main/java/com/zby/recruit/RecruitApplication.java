@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class recruitApplication {
+public class RecruitApplication {
     public static void main(String[] args) {
-        SpringApplication.run(recruitApplication.class);
+        SpringApplication.run(RecruitApplication.class);
 
     }
 
