@@ -1,0 +1,18 @@
+server:
+  port: 9008
+
+spring:
+  application:
+    name: MavenProject_Elasticsearch
+
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+
+
+
+
+
+
+
+

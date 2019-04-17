@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class CommentService {
@@ -28,6 +32,7 @@ public class CommentService {
     public Comment findById(String id){
         return commentDao.findById(id).get();
     }
+
     //增加
     public void addComment(Comment comment){//aaa 100
         comment.set_id(  String.valueOf( idWorker.nextId())  );
@@ -44,5 +49,21 @@ public class CommentService {
         commentDao.deleteById(id);
     }
 
-
+    //点赞
+    public void updateLikes(String id){
+        Query query = new Query();
+        Criteria criteria = Criteria.where("_id").is(id);
+        query.addCriteria(criteria) ;
+        Update update = new Update();
+        update.inc("likes",1);
+        mongoTemplate.updateFirst( query,update,"Project_comment" )   ;
+    }
+    public void delUpdateLikes(String id){
+        Query query = new Query();
+        Criteria criteria = Criteria.where("_id").is(id);
+        query.addCriteria(criteria) ;
+        Update update = new Update();
+        update.inc("likes",-1);
+        mongoTemplate.updateFirst( query,update,"Project_comment" )   ;
+    }
 }

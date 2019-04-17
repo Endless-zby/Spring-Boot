@@ -10,26 +10,25 @@ import java.util.Date;
 @Table(name = "tb_article")
 public class Article implements Serializable {
     @Id
-    private String id ;
-    private String columnId ; //专栏
-    private String userId ;
-    private String title ;
-    private String content ;
-    private String coverImage ;//封面
-    private Date publishTime ;
-    //赞
-    private int likes ;
+    private String id;
+    private String columnId; //专栏
+    private String userId;
+    private String title;
+    private String content;
+    private String coverImage;//封面
+    private Date publishTime;
+    private int likes; //赞
+    private String description;
+    private Date updateTime;
+    private String isPublic;//是否公开
+    private String isTop;//是否顶置
+    private int visits;
+    private int comments; //评论
+    private String state; //状态  ，未审核0  审核通过1
+    private String url;
+    private String type;
 
-    private Date updateTime ;
-    private String isPublic ;//是否公开
-    private String isTop ;//是否顶置
-    private int visits ;
-    private int comments ; //评论
-    private  String state ; //状态  ，未审核0  审核通过1
-    private String url ;
-    private String type ;
-
-    public Article(String id, String columnId, String userId, String title, String content, String coverImage, Date publishTime, int likes, Date updateTime, String isPublic, String isTop, int visits, int comments, String state, String url, String type) {
+    public Article(String id, String columnId, String userId, String title, String content, String coverImage, Date publishTime, int likes, String description, Date updateTime, String isPublic, String isTop, int visits, int comments, String state, String url, String type) {
         this.id = id;
         this.columnId = columnId;
         this.userId = userId;
@@ -38,6 +37,7 @@ public class Article implements Serializable {
         this.coverImage = coverImage;
         this.publishTime = publishTime;
         this.likes = likes;
+        this.description = description;
         this.updateTime = updateTime;
         this.isPublic = isPublic;
         this.isTop = isTop;
@@ -47,8 +47,7 @@ public class Article implements Serializable {
         this.url = url;
         this.type = type;
     }
-
-    public Article(String columnId, String userId, String title, String content, String coverImage, Date publishTime, int likes, Date updateTime, String isPublic, String isTop, int visits, int comments, String state, String url, String type) {
+    public Article(String columnId, String userId, String title, String content, String coverImage, Date publishTime, int likes, String description, Date updateTime, String isPublic, String isTop, int visits, int comments, String state, String url, String type) {
         this.columnId = columnId;
         this.userId = userId;
         this.title = title;
@@ -56,6 +55,7 @@ public class Article implements Serializable {
         this.coverImage = coverImage;
         this.publishTime = publishTime;
         this.likes = likes;
+        this.description = description;
         this.updateTime = updateTime;
         this.isPublic = isPublic;
         this.isTop = isTop;
@@ -131,6 +131,14 @@ public class Article implements Serializable {
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getUpdateTime() {

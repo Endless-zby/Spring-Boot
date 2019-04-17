@@ -9,6 +9,8 @@ spring:
       host: 39.96.160.110
       database: Project_comment
 
+  redis:
+    host: 39.96.160.110
 
 
 

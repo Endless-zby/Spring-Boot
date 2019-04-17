@@ -1,19 +1,19 @@
-package com.zby.article;
+package com.zby.elasticsearch;
 
 import com.zby.util.IdWorker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
-
-@SpringBootApplication
-public class ArticleApplication {
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+public class ElasticsearchApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ArticleApplication.class);
+        SpringApplication.run(ElasticsearchApplication.class);
 
     }
 
-    @Bean //IdWorker放入ioc容器 （1. @Bean +返回值  2.三层注解 ）
+    @Bean
     public IdWorker idWorker(){
         return new IdWorker(1,1);
     }

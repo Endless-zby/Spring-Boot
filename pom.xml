@@ -16,6 +16,7 @@
         <module>MavenProject_Article</module>
         <module>MavenProject_Active</module>
         <module>MavenProject_Comments</module>
+        <module>MavenProject_Elasticsearch</module>
     </modules>
 
     <properties>
