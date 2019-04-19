@@ -9,30 +9,38 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>MavenProject_Elasticsearch</artifactId>
+    <artifactId>MavenProject_User</artifactId>
 
-<dependencies>
-    <!-- jpa，相当于Mybatis -->
+    <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
+
     </dependency>
 
+    <!-- mysql的jar -->
     <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-redis</artifactId>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.47</version>
     </dependency>
 
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-    </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+    <!--redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
     <!-- 引入另一个工程 -->
     <dependency>
         <groupId>com.zby</groupId>
         <artifactId>MavenProject_Common</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
-</dependencies>
+    </dependencies>
 
 </project>

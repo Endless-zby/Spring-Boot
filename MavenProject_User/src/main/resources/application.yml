@@ -1,0 +1,31 @@
+server:
+  port: 9009
+
+spring:
+  application:
+    name: MavenProject_Base
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://cdb-6kot9g5e.cd.tencentcdb.com:10007/project_user?characterEncoding=utf-8&useSSL=true
+    url: jdbc:mysql://localhost:3306/project_user?characterEncoding=utf-8
+    username: root
+    password: zby123456
+
+
+  jpa:
+    database-platform:
+      # spring boot 2.0 的坑， spring boot2.+后默认使用的是MyISAM引擎
+      org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MySQL
+    generate-ddl: true
+    show-sql: true
+
+  redis:
+    host: 39.96.160.110
+
+  rabbitmq:
+    host: 39.96.160.110
+
+
+
+

@@ -17,6 +17,8 @@
         <module>MavenProject_Active</module>
         <module>MavenProject_Comments</module>
         <module>MavenProject_Elasticsearch</module>
+        <module>MavenProject_User</module>
+        <module>MavenProject_Sms</module>
     </modules>
 
     <properties>

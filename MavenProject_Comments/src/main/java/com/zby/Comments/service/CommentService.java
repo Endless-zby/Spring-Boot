@@ -58,6 +58,7 @@ public class CommentService {
         update.inc("likes",1);
         mongoTemplate.updateFirst( query,update,"Project_comment" )   ;
     }
+    //取消点赞
     public void delUpdateLikes(String id){
         Query query = new Query();
         Criteria criteria = Criteria.where("_id").is(id);
