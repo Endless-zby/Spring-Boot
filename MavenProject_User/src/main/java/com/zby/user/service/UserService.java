@@ -28,11 +28,10 @@ public class UserService {
         //随机验证码
         String smsCode = ((int)(Math.random()*9000)+1000) + "";
         //储存redis
-        System.out.println(smsCode);
         redisTemplate.opsForValue().set("sms_" + phone,smsCode);
         //数据整理
         HashMap<String, String> map = new HashMap<>();
-        map.put("sms_" + phone,phone);
+        map.put("phone",phone);
         map.put("smscode",smsCode);
         //加入队列
         rabbitTemplate.convertAndSend("sms",map);

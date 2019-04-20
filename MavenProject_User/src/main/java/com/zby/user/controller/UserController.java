@@ -23,15 +23,12 @@ public class UserController {
         return new Result(true, StatusCode.OK,"加入rabbit队列成功",null);
     }
 
-    //
+    //队列操作执行后保存用户数据
     @PostMapping("adduser/{smscode}")
     public Result addUser(@RequestBody User user,@PathVariable String smscode){
 
         userService.addUser(user,smscode);
 
         return new Result(true,StatusCode.OK,"注册成功",null);
-
     }
-
-
 }
