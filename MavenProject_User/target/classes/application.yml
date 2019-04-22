@@ -26,6 +26,9 @@ spring:
   rabbitmq:
     host: 39.96.160.110
 
-
+jwt:
+  config:
+    key: zby
+    expire: 20000
 
 

@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "jwt.config",
+      "type": "com.zby.util.JwtUtil",
+      "sourceType": "com.zby.util.JwtUtil"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.config.expire",
+      "type": "java.lang.Long",
+      "sourceType": "com.zby.util.JwtUtil",
+      "defaultValue": 0
+    },
+    {
+      "name": "jwt.config.key",
+      "type": "java.lang.String",
+      "sourceType": "com.zby.util.JwtUtil"
+    }
+  ],
+  "hints": []
+}

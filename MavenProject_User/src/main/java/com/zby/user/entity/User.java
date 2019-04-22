@@ -12,6 +12,7 @@ public class User {
     private String id;
     private String username ;
     private String password ;
+    private int type;   //用户类型    admin : 1      user : 0
     private String phone ;
     private int fans ;//粉丝数
     private Date registerTime ;
@@ -20,20 +21,34 @@ public class User {
     public User() {
     }
 
-    public User(String id, String password,String username, String phone,int fans, Date registerTime, Date updateTime, Date lastLoginTime) {
+    public User(String id, String username, String password, int type, String phone, int fans, Date registerTime, Date updateTime, Date lastLoginTime) {
         this.id = id;
         this.username = username;
+        this.password = password;
+        this.type = type;
+        this.phone = phone;
         this.fans = fans;
         this.registerTime = registerTime;
         this.updateTime = updateTime;
         this.lastLoginTime = lastLoginTime;
     }
-    public User(String username, String password, String phone,int fans, Date registerTime, Date updateTime, Date lastLoginTime) {
+
+    public User(String username, String password, int type, String phone, int fans, Date registerTime, Date updateTime, Date lastLoginTime) {
         this.username = username;
+        this.password = password;
+        this.type = type;
+        this.phone = phone;
         this.fans = fans;
         this.registerTime = registerTime;
         this.updateTime = updateTime;
         this.lastLoginTime = lastLoginTime;
+    }
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public String getPassword() {

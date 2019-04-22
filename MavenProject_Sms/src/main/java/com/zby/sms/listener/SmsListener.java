@@ -29,8 +29,8 @@ public class SmsListener {
         String smscode = map.get("smscode") ;
         String smscodeJsonStr = "{\"code\":\""+smscode+"\"}" ;
 
-        System.out.println("手机号：" +phone);
-        System.out.println("验证码：" +smscode);
+        System.out.println("手机号：" +phone) ;
+        System.out.println("验证码：" +smscode) ;
         //发送
             smsUtil.sendSms(phone, templateCode, signName, smscodeJsonStr);
     }

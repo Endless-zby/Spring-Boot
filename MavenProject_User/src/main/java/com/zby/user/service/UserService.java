@@ -6,6 +6,7 @@ import com.zby.util.IdWorker;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -22,6 +23,8 @@ public class UserService {
     private UserDao userDao;
     @Autowired
     private IdWorker idWorker;
+    @Autowired
+    private BCryptPasswordEncoder encoder ;
 
     //验证操作加入队列
     public void sendSms(String phone){
@@ -52,12 +55,30 @@ public class UserService {
         }
         //初始化用户数据
         user.setId(idWorker.nextId() + "");
+        String password = encoder.encode(user.getPassword());
+        user.setPassword(password);
         user.setFans(0);
-        user.setPassword(((int)(Math.random()*900000)+100000) + "");
         user.setRegisterTime(new Date());
         user.setLastLoginTime(new Date());
         user.setUpdateTime(new Date());
         userDao.save(user);
     }
+
+    //登录
+    public User login(User user){
+        //数据库查询
+        User users = userDao.findByUsername(user.getUsername());
+        //密码解密验证
+        if(users != null && encoder.matches(user.getPassword(),users.getPassword())){
+            return users;
+        }
+        return null;
+    }
+
+    //删除
+    public void deleteById(String id){
+        userDao.deleteById(id);
+    }
+
 
 }
