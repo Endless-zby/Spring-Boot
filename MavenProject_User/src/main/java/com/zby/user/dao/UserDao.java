@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface UserDao extends JpaRepository<User,String>, JpaSpecificationExecutor<User> {
 
-public User findByUsername(String username);
-public void deleteById(String id);
+            public User findByUsername(String username);
+            public void deleteById(String id);
 }

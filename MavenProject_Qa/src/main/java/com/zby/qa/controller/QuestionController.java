@@ -4,12 +4,14 @@ import com.zby.entity.Result;
 import com.zby.entity.StatusCode;
 import com.zby.qa.entity.Question;
 import com.zby.qa.service.QuestionService;
+import com.zby.util.IdWorker;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @RestController
 @RequestMapping(value = "question")
@@ -17,6 +19,9 @@ public class QuestionController {
 
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private HttpServletRequest request;
+
 
 
     @GetMapping(value = "quesionlist/{labelid}/{start}/{pageSize}")
@@ -39,6 +44,10 @@ public class QuestionController {
 
     @GetMapping(value = "queryallbyid/{id}")
     public Result findTop10ByIdEquals(@PathVariable String id){
+        Claims claims = (Claims)request.getAttribute("access");
+        if(claims == null){
+            return new Result(false,StatusCode.ACCESSERROR,"失败,权限不足",null);
+        }
         return new Result(true,StatusCode.OK,"查询成功",questionService.findTop10ByIdEquals(id));
     }
 
@@ -46,4 +55,19 @@ public class QuestionController {
     public Result findByReplyTimeOrderById(@PathVariable String id){
         return new Result(true,StatusCode.OK,"查询成功",questionService.findAllByIdEquals(id));
     }
+
+
+    @PostMapping("add")
+    public Result addQuestion(@RequestBody Question question){
+
+        Claims claims = (Claims)request.getAttribute("access_admin");
+        if(claims == null){
+            return new Result(false,StatusCode.ACCESSERROR,"发布失败，权限不足",null);
+        }
+        questionService.addQuestion(question);
+        return new Result(true,StatusCode.OK,"添加成功",null);
+
+    }
+
+
 }

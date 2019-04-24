@@ -29,6 +29,6 @@ spring:
 jwt:
   config:
     key: zby
-    expire: 20000
+    expire: 3600000
 
 

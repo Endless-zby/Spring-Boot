@@ -24,6 +24,9 @@ spring:
     hibernate:
       ddl-auto: update
 
-
-
+# 添盐加密
+jwt:
+  config:
+    key: zby      # 盐
+    expire: 120000       #过期时间
 

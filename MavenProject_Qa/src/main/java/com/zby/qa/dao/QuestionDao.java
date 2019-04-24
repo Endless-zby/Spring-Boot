@@ -37,4 +37,8 @@ public interface QuestionDao extends JpaRepository<Question,String>, JpaSpecific
         //replytime排序查询
         public Question findAllByIdEquals(String id);
 
+
+
+
+
 }

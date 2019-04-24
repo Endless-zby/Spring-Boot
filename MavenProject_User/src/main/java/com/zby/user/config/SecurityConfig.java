@@ -1,7 +1,6 @@
 package com.zby.user.config;
 
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Configuration
-@EnableWebSecurity //开启加密共能
+@EnableWebSecurity //开启加密功能
 public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 
     //设置加密的细节

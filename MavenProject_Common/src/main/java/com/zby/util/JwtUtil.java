@@ -46,7 +46,7 @@ public class JwtUtil {
         return builder.compact() ;
     }
 
-    public  Claims parseJwt(String token){
+    public Claims parseJwt(String token){
         Claims claims = null  ;
         try {
              claims = Jwts.parser().setSigningKey(key.getBytes()).parseClaimsJws(token).getBody();
