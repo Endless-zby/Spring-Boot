@@ -12,6 +12,7 @@
     <artifactId>MavenProject_Sms</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
@@ -26,5 +27,13 @@
             <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <!-- 引入另一个工程 -->
+        <dependency>
+            <groupId>com.zby</groupId>
+            <artifactId>MavenProject_Common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 </project>

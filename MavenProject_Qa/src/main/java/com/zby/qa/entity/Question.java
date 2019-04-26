@@ -3,6 +3,7 @@ package com.zby.qa.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 /*
     问题 ：  标签
@@ -15,7 +16,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name="tb_question")
-public class Question {
+public class Question implements Serializable {
     @Id
     private String id ;
     private String title ;

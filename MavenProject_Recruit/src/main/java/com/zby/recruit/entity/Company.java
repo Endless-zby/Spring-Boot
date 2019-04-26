@@ -3,10 +3,11 @@ package com.zby.recruit.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "tb_company")
-public class Company {
+public class Company implements Serializable {
     @Id
     private String id ;
     private String name ;

@@ -3,11 +3,12 @@ package com.zby.qa.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name="tb_reply")
-public class Reply {
+public class Reply implements Serializable {
     @Id
     private String id ;
     private String questionId ;

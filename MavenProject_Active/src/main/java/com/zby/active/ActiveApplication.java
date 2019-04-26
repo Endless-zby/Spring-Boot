@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 
 @EnableCaching //Spring Cache
+@EnableEurekaClient
 @SpringBootApplication
 public class ActiveApplication {
     public static void main(String[] args) {

@@ -1,6 +1,8 @@
 package com.zby.entity;
 
-public class Result {
+import java.io.Serializable;
+
+public class Result implements Serializable {
     private boolean flag ; //是否处理成功
     private Integer code ;//响应状态码  404   int resourceNotFound = 404 ;
     private String message ;//返回信息
