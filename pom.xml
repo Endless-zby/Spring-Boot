@@ -20,6 +20,7 @@
         <module>MavenProject_User</module>
         <module>MavenProject_Sms</module>
         <module>MavenProject_Eureka</module>
+        <module>MavenProject_Friend</module>
     </modules>
 
     <properties>

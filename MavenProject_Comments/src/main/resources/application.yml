@@ -10,7 +10,7 @@ eureka:
 
 spring:
   application:
-    name: MavenProject_Comments
+    name: MavenProject-Comments
   data:
     mongodb:
       host: 39.96.160.110

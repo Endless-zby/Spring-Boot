@@ -16,7 +16,7 @@ public class JwtConfiguration extends WebMvcConfigurationSupport {
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor).addPathPatterns("/**")
-                .excludePathPatterns("/**/login");//因为login之后才会生成token
+                .excludePathPatterns("/**/login","/**/question/**");//因为login之后才会生成token
     }
     //jd   登录
 

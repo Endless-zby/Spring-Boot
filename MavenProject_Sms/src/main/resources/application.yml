@@ -10,7 +10,8 @@ eureka:
 
 spring:
   application:
-    name: MavenProject_Base
+    name: MavenProject-Sms
+
   rabbitmq:
     host: 39.96.160.110
     password: guest

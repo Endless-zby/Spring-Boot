@@ -10,7 +10,7 @@ eureka:
 
 spring:
   application:
-    name: MavenProject_Recruit
+    name: MavenProject-Recruit
   datasource:
     driverClassName: com.mysql.jdbc.Driver
 #    url: jdbc:mysql://cdb-6kot9g5e.cd.tencentcdb.com:10007/project_recruit?characterEncoding=utf-8&useSSL=true

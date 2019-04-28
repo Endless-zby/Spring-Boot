@@ -31,7 +31,7 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
                 if("1".equalsIgnoreCase((String) claims.get("roles"))){
                     request.setAttribute("access_admin",claims);
                 }else if("0".equalsIgnoreCase((String) claims.get("roles"))){
-                    request.setAttribute("access_error",claims);
+                    request.setAttribute("access_admin",claims);
                 }else {
                     throw new RuntimeException("操作拒绝！");
                 }

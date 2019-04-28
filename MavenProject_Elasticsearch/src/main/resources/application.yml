@@ -10,7 +10,7 @@ eureka:
 
 spring:
   application:
-    name: MavenProject_Elasticsearch
+    name: MavenProject-Elasticsearch
 
   data:
     elasticsearch:

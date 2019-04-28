@@ -1,0 +1,7 @@
+com\zby\base\service\LabelService$1.class
+com\zby\base\controller\LabelController.class
+com\zby\base\service\LabelService.class
+com\zby\base\dao\LabelDao.class
+com\zby\base\entity\Label.class
+com\zby\base\BaseApplication.class
+com\zby\base\controller\ProjectExceptionHandler.class
