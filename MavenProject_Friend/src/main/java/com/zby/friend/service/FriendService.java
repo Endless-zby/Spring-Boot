@@ -1,5 +1,6 @@
 package com.zby.friend.service;
 
+import com.zby.friend.Client.UserClient;
 import com.zby.friend.dao.BlackListDao;
 import com.zby.friend.dao.FriendDao;
 import com.zby.friend.entity.BlackList;
@@ -17,6 +18,8 @@ public class FriendService {
     private FriendDao friendDao;
     @Autowired
     private BlackListDao blackListDao;
+    @Autowired
+    private UserClient userClient;
 
     /**
      * 业务：添加好友
@@ -34,6 +37,7 @@ public class FriendService {
             return 1;
         }
             friendDao.save(friend);
+        userClient.updataFansAdd(friendId);
         return 2;
     }
 
@@ -68,6 +72,7 @@ public class FriendService {
      */
     public void deleteFriend(String userId,String friendId){
         friendDao.deleteByUserIdAndFriendId(userId,friendId);
+        userClient.updataFansLes(friendId);
     }
 
     /**
@@ -79,6 +84,7 @@ public class FriendService {
     public void addBlackList(String userId,String friendId){
         BlackList blackList = new BlackList(userId, friendId);
         blackListDao.save(blackList);
+
     }
 
     /**
@@ -101,6 +107,8 @@ public class FriendService {
         blackListDao.delete(blackList);
         Friend friend = new Friend(userId, friendId, "0");
         friendDao.save(friend);
+        userClient.updataFansAdd(friendId);
     }
+
 
 }

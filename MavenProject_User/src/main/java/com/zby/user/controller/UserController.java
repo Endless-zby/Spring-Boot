@@ -33,9 +33,7 @@ public class UserController {
      */
     @PostMapping("{phone}")
     public Result sendSms(@PathVariable String phone){
-
         userService.sendSms(phone);
-
         return new Result(true, StatusCode.OK,"加入rabbit队列成功",null);
     }
 
@@ -48,9 +46,7 @@ public class UserController {
 
     @PostMapping("adduser/{smscode}")
     public Result addUser(@RequestBody User user,@PathVariable String smscode){
-
         userService.addUser(user,smscode);
-
         return new Result(true,StatusCode.OK,"注册成功",null);
     }
 
@@ -61,7 +57,6 @@ public class UserController {
      */
     @GetMapping("login")
     public Result login(@RequestBody User user){
-
         User login = userService.login(user);
         if(login == null){
             return new Result(false,StatusCode.ERROR,"账号或密码错误",null);
@@ -87,6 +82,22 @@ public class UserController {
         }
         userService.deleteById(id);
         return new Result(true,StatusCode.OK,"删除成功",null);
+    }
+
+    /**
+     * 业务：更新粉丝数lessen
+     * @param userId
+     * @return
+     */
+    @GetMapping("updataFansAdd1/{userId}")
+    public Result updataFansAdd1(@PathVariable String userId){
+        userService.updataFans(userId,1);
+        return new Result(true,StatusCode.OK,"粉丝增加1",null);
+    }
+    @GetMapping("updataFansLessen1/{userId}")
+    public Result updataFansLessen1(@PathVariable String userId){
+        userService.updataFans(userId,-1);
+        return new Result(true,StatusCode.OK,"粉丝减少1",null);
     }
 
     /**

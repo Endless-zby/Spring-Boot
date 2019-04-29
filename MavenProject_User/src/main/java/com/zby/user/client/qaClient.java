@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient("MavenProject-Qa")
 public interface qaClient {
 
-    @GetMapping(value = "/question/quesionlist/{labelid}/{start}/{pageSize}")
+    @GetMapping(value = "question/quesionlist/{labelid}/{start}/{pageSize}")
     Result findNewQuestionsByLabelId(@PathVariable("labelid") String labelid, @PathVariable("start") int start, @PathVariable("pageSize") int pageSize);
 
-    @GetMapping(value = "/question/hotquesionlist/{labelid}/{start}/{pageSize}")
+    @GetMapping(value = "question/hotquesionlist/{labelid}/{start}/{pageSize}")
     Result findHotQuestionsByLabelId(@PathVariable("labelid") String labelid,@PathVariable("start") int start,@PathVariable("pageSize") int pageSize);
 
-    @GetMapping(value="/question/waitquesionlist/{labelid}/{start}/{pagesize}")
+    @GetMapping(value="question/waitquesionlist/{labelid}/{start}/{pagesize}")
     Result findWaitQuestionsByLabelId(@PathVariable("labelid") String labelid,@PathVariable("start") int start,@PathVariable("pageSize") int pagesize);
 
-    @GetMapping(value = "/question/queryallbyid/{id}")
+    @GetMapping(value = "question/queryallbyid/{id}")
     Result findTop10ByIdEquals(@PathVariable("id") String id);
 
-    @GetMapping(value = "/question/findByReplyTimeOrderById/{id}")
+    @GetMapping(value = "question/findByReplyTimeOrderById/{id}")
     Result findByReplyTimeOrderById(@PathVariable("id") String id);
 
 //    @PostMapping("/question/add")

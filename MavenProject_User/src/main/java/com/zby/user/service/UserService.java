@@ -9,9 +9,11 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.HashMap;
 
+@Transactional
 @Service
 public class UserService {
 
@@ -74,11 +76,14 @@ public class UserService {
         }
         return null;
     }
-
     //删除
     public void deleteById(String id){
         userDao.deleteById(id);
     }
 
+    //粉丝加1
+    public void updataFans(String userId,int number){
+        userDao.updatafans(number,userId);
+    }
 
 }
