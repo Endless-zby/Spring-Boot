@@ -39,4 +39,7 @@ jwt:
     key: zby
     expire: 3600000
 
-
+#熔断保护机制
+feign:
+  hystrix:
+    enabled: true

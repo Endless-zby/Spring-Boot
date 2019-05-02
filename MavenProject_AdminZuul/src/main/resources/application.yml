@@ -1,0 +1,53 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: MavenProject-AdminZuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true
+
+
+
+
+zuul:
+  routes:
+    MavenProject_Base:
+      path: /base/**  #请求的规则（给请求增加了前缀）
+      serviceId:  MavenProject-Base #Eureka中服务的id值
+    MavenProject_Recruit:
+      path: /recruit/**
+      serviceId:  MavenProject-Recruit
+    MavenProject_Qa:
+      path: /qa/**
+      serviceId:  MavenProject-Qa
+    MavenProject_Article:
+      path: /article/**
+      serviceId:  MavenProject-Article
+    MavenProject_Active:
+      path: /active/**
+      serviceId:  MavenProject-Active
+    MavenProject_Comments:
+      path: /comments/**
+      serviceId:  MavenProject-Comments
+    MavenProject_Elasticsearch:
+      path: /elasticserach/**
+      serviceId:  MavenProject-Elasticsearch
+    MavenProject_User:
+      path: /user/**
+      serviceId:  MavenProject-User
+    MavenProject_Sms:
+      path: /sms/**
+      serviceId:  MavenProject-Sms
+    MavenProject_Friend:
+      path: /friend/**
+      serviceId:  MavenProject-Friend
+
+
+
+

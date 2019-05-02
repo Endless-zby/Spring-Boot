@@ -21,6 +21,10 @@
         <module>MavenProject_Sms</module>
         <module>MavenProject_Eureka</module>
         <module>MavenProject_Friend</module>
+        <module>MavenProject_Manager</module>
+        <module>MavenProject_Web</module>
+        <module>MavenProject_AdminZuul</module>
+        <module>MavenProject_UserZuul</module>
     </modules>
 
     <properties>
