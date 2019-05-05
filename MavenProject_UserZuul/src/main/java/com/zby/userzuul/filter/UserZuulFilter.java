@@ -45,10 +45,12 @@ public class UserZuulFilter extends ZuulFilter {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
         String authrorization = request.getHeader("Authrorization");
+        System.out.println("token：" + authrorization);
         //如果有Authrorization，则实际进行校验
         // 如果是登录请求（请求地址中 包含login字段），则不需要拦截；如果不是登录请求，则进行 登录校验
         String url = request.getRequestURL().toString();
-        if (url.contains("UserController/login")) {
+        System.out.println("目标地址：" + url);
+        if (url.contains("user/UserController/login")) {
             System.out.println("登录页面");
             return null;
         }
@@ -70,6 +72,7 @@ public class UserZuulFilter extends ZuulFilter {
                 //判断角色是否是User，如果是 则放行(return null)
                 //用户类型    admin : 1      user : 0
                 if ("0".equals(claims.get("roles"))) {
+                    System.out.println("用户");
                     // request.setAttribute("user_claims" ,claims );
                     //符合user角色
                     System.out.println("符合user....");
@@ -77,6 +80,7 @@ public class UserZuulFilter extends ZuulFilter {
                     requestContext.addZuulRequestHeader("Authrorization",authrorization);
                     return null;
                 }
+                System.out.println("管理员");
             }
             //终止请求
             requestContext.setSendZuulResponse(false);

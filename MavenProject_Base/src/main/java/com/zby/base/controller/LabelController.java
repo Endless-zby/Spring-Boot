@@ -5,13 +5,15 @@ import com.zby.entity.Result;
 import com.zby.entity.StatusCode;
 import com.zby.base.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Id;
 import java.util.Map;
 
-
+@RefreshScope
 @RestController    //可以return值直接打印
 @RequestMapping("/label")
 public class LabelController {
@@ -19,9 +21,12 @@ public class LabelController {
     @Autowired
     private LabelService labelService;
 
+    @Value("${zby.name}")
+    private String name;
     //查询所有get
     @GetMapping
     public Result findAll(){
+        System.out.println(name);
         return new Result(true, StatusCode.OK,"查询成功", labelService.findAll() );
     }
 

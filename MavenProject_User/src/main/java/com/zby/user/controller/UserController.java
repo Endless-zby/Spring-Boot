@@ -8,10 +8,13 @@ import com.zby.user.service.UserService;
 import com.zby.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
+@RefreshScope
 @RestController
 @RequestMapping("UserController")
 public class UserController {
@@ -24,6 +27,8 @@ public class UserController {
     private HttpServletRequest request;
     @Autowired
     private qaClient qaclient;
+    @Value("${zby.name}")
+    private String name;
 
 
     /**
@@ -57,6 +62,7 @@ public class UserController {
      */
     @GetMapping("login")
     public Result login(@RequestBody User user){
+        System.out.println(name);
         User login = userService.login(user);
         if(login == null){
             return new Result(false,StatusCode.ERROR,"账号或密码错误",null);

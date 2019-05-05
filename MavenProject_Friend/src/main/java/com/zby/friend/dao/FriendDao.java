@@ -16,6 +16,7 @@ public interface FriendDao extends JpaRepository<Friend,String>,JpaSpecification
     @Query("update Friend f set f.isStar = ?3 where f.userId = ?1 and f.friendId = ?2")
     public void updateIsStar(String userId,String friendId,String isStar) ;
 
+
     @Query(nativeQuery = true,value = "select count(*) from tb_friend where user_Id = ? and friend_Id = ? and is_Star = 1")
     public int seletFriendIsStar(String userId,String friendId);
 

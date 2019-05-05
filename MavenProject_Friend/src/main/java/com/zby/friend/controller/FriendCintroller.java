@@ -5,10 +5,13 @@ import com.zby.entity.StatusCode;
 import com.zby.friend.service.FriendService;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+@RefreshScope
 @RestController
 @RequestMapping("FriendCintroller")
 public class FriendCintroller {
@@ -17,6 +20,8 @@ public class FriendCintroller {
     private FriendService friendService;
     @Autowired
     private HttpServletRequest request;
+    @Value("${zby.name}")
+    private String name;
 
     @GetMapping("addfriend/{friendId}")
     public Result addfriend(@PathVariable("friendId") String friendId){
@@ -43,6 +48,7 @@ public class FriendCintroller {
 
     @PutMapping("makestar/{friendId}")
     public Result makeStar(@PathVariable("friendId") String friendId){
+        System.out.println(name);
         Claims claims = (Claims)request.getAttribute("access_admin");
         if(claims==null){
             return new Result(false, StatusCode.ACCESSERROR,"未登录！",null);

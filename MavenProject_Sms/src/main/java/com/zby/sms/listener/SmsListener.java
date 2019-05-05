@@ -21,6 +21,9 @@ public class SmsListener {
     @Value("${aliyun.sms.signName}")
     private String signName  ;
 
+    @Value("${zby.name}")
+    private String name;
+
 
     @RabbitHandler
     public void sendSms(Map<String,String> map) throws ClientException {
@@ -31,6 +34,7 @@ public class SmsListener {
 
         System.out.println("手机号：" +phone) ;
         System.out.println("验证码：" +smscode) ;
+        System.out.println("测试：" +name);
         //发送
             smsUtil.sendSms(phone, templateCode, signName, smscodeJsonStr);
     }

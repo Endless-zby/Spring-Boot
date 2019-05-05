@@ -6,11 +6,13 @@ import com.zby.entity.PageResult;
 import com.zby.entity.Result;
 import com.zby.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 
+@RefreshScope
 @RestController
 @RequestMapping("elasticsearch")
 public class ArticleESController {

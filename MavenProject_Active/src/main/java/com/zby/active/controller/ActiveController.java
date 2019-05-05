@@ -5,18 +5,24 @@ import com.zby.active.service.ActiveService;
 import com.zby.entity.Result;
 import com.zby.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+@RefreshScope
 @RestController
 @RequestMapping(value = "ActiveController")
 public class ActiveController {
 
     @Autowired
     private ActiveService activeService;
+    @Value("${zby.name}")
+    private String name;
 
     //使用的redis
     @GetMapping("queryid/{id}")
     public Result queryid(@PathVariable String id){
+        System.out.println(name);
         return new Result(true, StatusCode.OK,"查询成功！",activeService.queryid(id));
     }
 

@@ -6,6 +6,7 @@ import com.zby.entity.PageResult;
 import com.zby.entity.Result;
 import com.zby.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,8 @@ public class CommentController {
     private CommentService commentService;
     @Autowired
     private RedisTemplate redisTemplate;
+    @Value("${zby.name}")
+    private String name;
 
     //分页查询
     @GetMapping("{parentId}/{start}/{pageSize}")
@@ -33,6 +36,7 @@ public class CommentController {
     //id查询
     @GetMapping("{id}")
     public Result findById(@PathVariable String id){
+        System.out.println(name);
         return new Result(true,StatusCode.OK,"查询成功",commentService.findById(id));
     }
 

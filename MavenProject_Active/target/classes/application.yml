@@ -34,3 +34,5 @@ spring:
   redis:
     host: 39.96.160.110
 
+zby:
+  name: zhao

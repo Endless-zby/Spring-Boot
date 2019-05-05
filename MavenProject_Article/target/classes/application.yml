@@ -31,5 +31,5 @@ spring:
       ddl-auto: update
 
   redis:
-    host: 127.0.0.1
+    host: 39.93.160.110
 

@@ -7,12 +7,15 @@ import com.zby.qa.service.QuestionService;
 import com.zby.util.IdWorker;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
+@RefreshScope
 @RestController
 @RequestMapping(value = "question")
 public class QuestionController {
@@ -21,6 +24,8 @@ public class QuestionController {
     private QuestionService questionService;
     @Autowired
     private HttpServletRequest request;
+    @Value("${zby.name}")
+    private String name;
 
 
 
@@ -38,6 +43,7 @@ public class QuestionController {
     }
     @GetMapping(value = "hotquesionlist/{labelid}/{start}/{pageSize}")
     public Result findHotQuestionsByLabelId(@PathVariable String labelid,@PathVariable int start,@PathVariable int pageSize){
+        System.out.println(name);
         Claims claims = (Claims)request.getAttribute("access_admin");
         if(claims == null){
             return new Result(false,StatusCode.ACCESSERROR,"查询失败，未登录",null);

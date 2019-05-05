@@ -25,6 +25,7 @@
         <module>MavenProject_Web</module>
         <module>MavenProject_AdminZuul</module>
         <module>MavenProject_UserZuul</module>
+        <module>MavenProject_Config</module>
     </modules>
 
     <properties>

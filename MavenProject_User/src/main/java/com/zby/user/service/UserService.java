@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.HashMap;
 
-@Transactional
+
 @Service
 public class UserService {
 
@@ -29,6 +29,7 @@ public class UserService {
     private BCryptPasswordEncoder encoder ;
 
     //验证操作加入队列
+    @Transactional
     public void sendSms(String phone){
         //随机验证码
         String smsCode = ((int)(Math.random()*9000)+1000) + "";
@@ -48,6 +49,7 @@ public class UserService {
             User(username,password)
             smscode
      */
+    @Transactional
     public void addUser(User user, String smscode){
         //redis中获取以保存的验证码
         String redisCode = (String) redisTemplate.opsForValue().get("sms_" + user.getPhone());
@@ -67,6 +69,7 @@ public class UserService {
     }
 
     //登录
+
     public User login(User user){
         //数据库查询
         User users = userDao.findByUsername(user.getUsername());
@@ -77,11 +80,13 @@ public class UserService {
         return null;
     }
     //删除
+    @Transactional
     public void deleteById(String id){
         userDao.deleteById(id);
     }
 
     //粉丝加1
+    @Transactional
     public void updataFans(String userId,int number){
         userDao.updatafans(number,userId);
     }
