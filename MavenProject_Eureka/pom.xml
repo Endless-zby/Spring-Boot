@@ -17,7 +17,54 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId> spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-
     </dependencies>
+
+    <!--通过maven构建docker镜像 (刚才手工 jdk->docker；现在通过maven自动将 某个项目->docker) -->
+    <build>
+        <finalName>MavenProject_Eureka</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 以下configuration 解决 maven一个bug：no main manifest attribute-->
+                <configuration>
+                    <!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>com.zby.eureka.EurekaApplication</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+
+                <configuration>
+
+                    <imageName>
+                        39.96.160.110:5000/eureka:${project.version}
+                    </imageName>
+                    <!--docker的tag为项目版本号、latest-->
+                    <baseImage>jdk-8u181</baseImage>
+                    <entryPoint>["java","-jar","/${project.build.finalName}.jar"] </entryPoint>
+                    <resources>
+                        <rescource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </rescource>
+
+                    </resources>
+                    <dockerHost>http://39.96.160.110:2375</dockerHost>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
