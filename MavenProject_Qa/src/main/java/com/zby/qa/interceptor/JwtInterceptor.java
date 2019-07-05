@@ -22,6 +22,7 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
         //获取页面头Authrorization
         String authrorization = request.getHeader("Authrorization");
 
+
         if(authrorization != null && authrorization.startsWith("Bearer ")){
             //截取token段
             String token = authrorization.substring(7);

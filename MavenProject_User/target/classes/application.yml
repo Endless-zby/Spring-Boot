@@ -34,6 +34,19 @@ spring:
   rabbitmq:
     host: 39.96.160.110
 
+
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources
+
+
+
 jwt:
   config:
     key: zby

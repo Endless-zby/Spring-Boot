@@ -65,5 +65,8 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+
+
     </dependencies>
+
 </project>

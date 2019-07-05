@@ -50,7 +50,7 @@ public class UserZuulFilter extends ZuulFilter {
         // 如果是登录请求（请求地址中 包含login字段），则不需要拦截；如果不是登录请求，则进行 登录校验
         String url = request.getRequestURL().toString();
         System.out.println("目标地址：" + url);
-        if (url.contains("user/UserController/login")) {
+        if (url.contains("user/UserController/index")) {
             System.out.println("登录页面");
             return null;
         }

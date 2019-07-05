@@ -2,12 +2,21 @@ package com.zby.user;
 
 import com.zby.util.IdWorker;
 import com.zby.util.JwtUtil;
+import org.apache.http.client.methods.HttpPost;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Collection;
+import java.util.Locale;
 
 @EnableEurekaClient
 @SpringBootApplication
@@ -32,6 +41,10 @@ public class UserApplication {
         return new JwtUtil();
     }
 
+    @Bean
+    public HttpPost httpPost(){
+        return new HttpPost();
+    }
 
     
 }

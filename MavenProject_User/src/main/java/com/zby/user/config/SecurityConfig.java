@@ -18,9 +18,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers( "/**").permitAll()
                 .anyRequest().authenticated().and().csrf().disable() ; //将全部加密功能禁止
-         //www.jd.com
-        //www.jd.com/show.jsp
-        //https://kuaibao.jd.com/article?id=172140563
     }
 
     //指定需要给密码进行加密

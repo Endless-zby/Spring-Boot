@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/vector.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+</head>
+<body>
+
+
+状态：<span th:text="${result.flag}"></span><br/>
+状态码：<span th:text="${result.code}"></span><br/>
+结果：<span th:text="${result.message}"></span><br/>
+结果集：<span th:text="${result.data.content[0]}"></span><br/>
+
+<!--<div class="style4" th:each="user:${result.data.content}">
+    id：<input th:value="${user.id}"/><br/>
+    标题：<input th:value="${user.title}"/><br/>
+    内容：<input th:value="${user.content}"/><br/>
+</div>-->
+
+页面大小：<span th:text="${result.data.size}"></span><br/>
+当前页：<span th:text="${result.data.totalPages}"></span><br/>
+
+
+
+<div id="container">
+    <div id="output">
+        <div class="containerT">
+
+            <form class="form" id="entry_form">
+            <div th:each="user:${result.data.content}">
+                id：<input th:value="${user.id}"/><br/>
+                标题：<input th:value="${user.title}"/><br/>
+                内容：<input th:value="${user.content}"/><br/>
+            </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function(){
+        Victor("container", "output");   //登录背景函数
+        $("#entry_name").focus();
+        $(document).keydown(function(event){
+            if(event.keyCode==13){
+                $("#entry_btn").click();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

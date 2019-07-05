@@ -21,6 +21,10 @@ public class User implements Serializable {
     private Date lastLoginTime ;
     public User() {
     }
+    public User(String username,String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public User(String id, String username, String password, int type, String phone, int fans, Date registerTime, Date updateTime, Date lastLoginTime) {
         this.id = id;

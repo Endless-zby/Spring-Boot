@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import java.util.Arrays;
+
 @Component
 @Configuration
 public class JwtConfiguration extends WebMvcConfigurationSupport {
@@ -21,7 +23,7 @@ public class JwtConfiguration extends WebMvcConfigurationSupport {
  * addPathPatterns ：添加拦截请求路径（/** ：拦截一切请求）
  * excludePathPatterns ：加入白名单（此请求不拦截）
  * */
-    registry.addInterceptor(jwtInterceptor).addPathPatterns("/**")
-            .excludePathPatterns("");
+    registry.addInterceptor(jwtInterceptor).addPathPatterns("")
+            .excludePathPatterns(Arrays.asList("/**/login","/**/question/**","/**/index/**","/static/**"));
     }
 }
